@@ -1,12 +1,8 @@
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import rootReducer from "./rootReducer"; // 경로 맞게
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./reducers/index";
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(
-    applyMiddleware() // 미들웨어 없으면 그냥 비워도 됨
-  )
-);
+const store = configureStore({
+  reducer: rootReducer,
+});
 
 export default store;
